@@ -13,6 +13,12 @@ const NavBar = () => {
         <li>
           <Link to="/planets/">Planets</Link>
         </li>
+        <li>
+          <Link to="/films">Films</Link>
+        </li>
+        <li>
+          <Link to="/characters">Characters</Link>
+        </li>
       </ul>
     </nav>
   );
