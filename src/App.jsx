@@ -5,6 +5,7 @@ import axios from "axios";
 import StarshipList from "./components/StarshipList";
 import PlanetList from "./components/PlanetList";
 import FilmList from "./components/FilmList";
+import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
 
 const App = () => {
