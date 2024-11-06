@@ -4,8 +4,15 @@ import FilmList from "./FilmList";
 const CharacterList = ({ characters }) => {
   if (!characters) {
     return (
+      <h3>
+        This being has been either captured, killed, or gone missing. Please go
+        back to the main page.
+      </h3>
+    );
+  } else {
+    return (
       <>
-        <h1>Characters</h1>
+        <h2>Characters</h2>
         <ul>
           {characters.map((character, idx) => (
             <li key={idx}>

@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 const FilmList = ({ films }) => {
   if (!films) {
     return (
-      <h1>
+      <h3>
         This event never happened. You're from another timeline. Please go back
         to the main page!
-      </h1>
+      </h3>
     );
   } else {
     return (
       <>
-        <h1>Films</h1>
+        <h2>Films</h2>
         <ul>
           {films.map((film, idx) => (
             <li key={idx}>
-              <Link to={`/films/${idx}`}>{film.name}</Link>
+              <Link to={`/films/${idx}`}>{film.title}</Link>
             </li>
           ))}
         </ul>

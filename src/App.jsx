@@ -9,31 +9,29 @@ import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
 
 const App = () => {
-  const US = useState([]);
-
-  const [starships, setStarships] = US;
-  const [planets, setPlanets] = US;
-  const [films, setFilms] = US;
-  const [characters, setCharacters] = US;
+  const [starships, setStarships] = useState([]);
+  const [planets, setPlanets] = useState([]);
+  const [films, setFilms] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     const getStarships = async () => {
-      const res = await axios.get(`${BASE_URL}/${starships}`);
+      const res = await axios.get(`${BASE_URL}/starships`);
       setStarships(res.data.results);
     };
 
     const getPlanets = async () => {
-      const res = await axios.get(`${BASE_URL}/${planets}`);
+      const res = await axios.get(`${BASE_URL}/planets`);
       setPlanets(res.data.results);
     };
 
     const getFilms = async () => {
-      const res = await axios.get(`${BASE_URL}/${films}`);
+      const res = await axios.get(`${BASE_URL}/films`);
       setFilms(res.data.results);
     };
 
     const getCharacters = async () => {
-      const res = await axios.get(`${BASE_URL}/${characters}`);
+      const res = await axios.get(`${BASE_URL}/people`);
       setCharacters(res.data.results);
     };
 
@@ -61,7 +59,7 @@ const App = () => {
         />
         <Route
           path="/*"
-          element={<h2>404 Error | Please, return to the main page.</h2>}
+          element={<h3>404 Error | Please, return to the main page.</h3>}
         />
       </Routes>
     </>
