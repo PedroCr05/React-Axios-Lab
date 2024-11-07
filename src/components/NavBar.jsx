@@ -17,7 +17,7 @@ const NavBar = () => {
           <Link to="/films">Films</Link>
         </li>
         <li>
-          <Link to="/characters">Characters</Link>
+          <Link to="/people">Characters</Link>
         </li>
       </ul>
     </nav>

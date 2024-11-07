@@ -7,6 +7,10 @@ import PlanetList from "./components/PlanetList";
 import FilmList from "./components/FilmList";
 import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
+import StarshipDetails from "./components/ComponentDetails/StarshipDetails";
+import PlanetDetails from "./components/ComponentDetails/PlanetDetails";
+import FilmDetails from "./components/ComponentDetails/FlimDetails";
+import CharacterDetails from "./components/ComponentDetails/CharacterDetails";
 
 const App = () => {
   const [starships, setStarships] = useState([]);
@@ -51,11 +55,24 @@ const App = () => {
           path="/starships"
           element={<StarshipList starships={starships} />}
         />
-        <Route path="/planets" element={<PlanetList planets={planets} />} />
-        <Route path="/films" element={<FilmList films={films} />} />
         <Route
-          path="/characters"
+          path="/startships/:starshipId"
+          element={<StarshipDetails starships={starships} />}
+        />
+        <Route path="/planets" element={<PlanetList planets={planets} />} />
+        <Route
+          path="/planets/:planetsId"
+          element={<PlanetDetails planets={planets} />}
+        />
+        <Route path="/films" element={<FilmList films={films} />} />
+        <Route path="/films/:filmId" element={<FilmDetails films={films} />} />
+        <Route
+          path="/people"
           element={<CharacterList characters={characters} />}
+        />
+        <Route
+          path="/people/:characterId"
+          element={<CharacterDetails characters={characters} />}
         />
         <Route
           path="/*"

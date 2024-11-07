@@ -16,7 +16,7 @@ const CharacterList = ({ characters }) => {
         <ul>
           {characters.map((character, idx) => (
             <li key={idx}>
-              <Link to={`/characters/${idx}`}>{character.name}</Link>
+              <Link to={`/people/${idx}`}>{character.name}</Link>
             </li>
           ))}
         </ul>
