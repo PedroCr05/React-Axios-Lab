@@ -1,25 +1,45 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../globals";
 
 const CharacterDetails = (props) => {
+  const [homeworld, setHomeworld] = useState({});
+  const [character, setCharacter] = useState({});
   const { characterId } = useParams();
 
-  const singularCharacter = props.result.find(
-    (person) => person._id === Number(characterId)
-  );
+  useEffect(() => {
+    const getCharacter = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/people`);
+        setCharacter(res.data.results[characterId]);
 
+        if (character.homeworld) {
+          const res = await axios.get(character.homeworld);
+          setHomeworld(res);
+        }
+      } catch (e) {
+        console.log(`Error. Page broken`);
+      }
+    };
+    getCharacter();
+  }, []);
+
+  console.log(homeworld);
   return (
     <>
-      <h2>{singularCharacter.name}</h2>
+      <h2>{character.name}</h2>
       <dl>
-        {/* <dt>Home World</dt>
-        <dd></dd> */}
-        {/* When I get the chance. For sure ask how to do a back and forth link. That'd be nice to understand! */}
+        <dt>Home World</dt>
+        <dd></dd>
+        {/* When I get the chance. For sure ask how to do a back and forth link.
+        That'd be nice to understand! */}
         <dt>Birth Year</dt>
-        <dd>{singularCharacter.birth_year}</dd>
+        <dd>{character.birth_year}</dd>
         <dt>Height</dt>
-        <dd>{singularCharacter.height}</dd>
+        <dd>{character.height}</dd>
         <dt>Mass</dt>
-        <dd>{singularCharacter.mass}</dd>
+        <dd>{character.mass}</dd>
       </dl>
     </>
   );

@@ -9,7 +9,7 @@ import CharacterList from "./components/CharacterList";
 import NavBar from "./components/NavBar";
 import StarshipDetails from "./components/ComponentDetails/StarshipDetails";
 import PlanetDetails from "./components/ComponentDetails/PlanetDetails";
-import FilmDetails from "./components/ComponentDetails/FlimDetails";
+import FilmDetails from "./components/ComponentDetails/FilmDetails";
 import CharacterDetails from "./components/ComponentDetails/CharacterDetails";
 
 const App = () => {
@@ -48,7 +48,7 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <h1>Starships!</h1>
+      <h1>Star Wars!</h1>
       <Routes>
         <Route path="/" element={<h2>Star Wars Database :3</h2>} />
         <Route
@@ -56,7 +56,7 @@ const App = () => {
           element={<StarshipList starships={starships} />}
         />
         <Route
-          path="/startships/:starshipId"
+          path="/starships/:starshipId"
           element={<StarshipDetails starships={starships} />}
         />
         <Route path="/planets" element={<PlanetList planets={planets} />} />

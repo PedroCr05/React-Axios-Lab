@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import FilmList from "./FilmList";
 
 const CharacterList = ({ characters }) => {
   if (!characters) {

@@ -1,22 +1,30 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../globals";
 
 const StarshipDetails = (props) => {
+  const [starship, setStarship] = useState({});
   const { starshipId } = useParams();
 
-  const singularStarship = props.result.find(
-    (ship) => ship._id === Number(starshipId)
-  );
+  useEffect(() => {
+    const getStarship = async () => {
+      const res = await axios.get(`${BASE_URL}/starships`);
+      setStarship(res.data.results[starshipId]);
+    };
+    getStarship();
+  }, []);
 
   return (
     <>
-      <h2>{singularStarship.name}</h2>
+      <h2>{starship.name}</h2>
       <dl>
         <dt>Model</dt>
-        <dd>{singularStarship.model}</dd>
+        <dd>{starship.model}</dd>
         <dt>Manufacturer</dt>
-        <dd>{singularStarship.manufacturer}</dd>
+        <dd>{starship.manufacturer}</dd>
         <dt>Starship Class</dt>
-        <dd>{singularStarship.starship_class}</dd>
+        <dd>{starship.starship_class}</dd>
       </dl>
     </>
   );
